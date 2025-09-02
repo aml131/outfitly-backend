@@ -1,18 +1,23 @@
 const { model,Schema } = require("mongoose");
 
 const itemSchemma=new Schema({
-    ItemName:{
+    user:{
+        type:Schema.Types.ObjectId,
+        ref:'User'
+    },
+
+    itemName:{
        type: String,
        required:true
     },
 
-    Category:{
+    category:{
         type:String,
-        enum:['Headwear','Top','Bottom','Shoes','Acceseeories','Outwear'],
+        enum:['Headwear','Top','Bottom','Shoes','Accessories','Outwear'],
         required:true
     },
 
-    Photo:{
+    photo:{
         type:String,
     },
 

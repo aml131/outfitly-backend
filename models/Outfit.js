@@ -1,11 +1,32 @@
 const { model,Schema } = require("mongoose");
 
-const itemSchemma=new Schema({
-    OutfitName:{
-       type: String,
-       required:true, 
+const outfitSchemma=new Schema({
+
+     user:{
+        type:Schema.Types.ObjectId,
+        ref:'User',
+        required:true
     },
+
+    outfitName:{
+       type: String,
+       required:true
+    },
+    items: [
+  {
+    itemId: { type: Schema.Types.ObjectId, ref: 'Item', required: true },
+    x: { type: Number, default: 0 },
+    y: { type: Number, default: 0 }
+  }
+],
+
+    isFavorite:{
+        type: Boolean,
+        default: false
+    }
+
+
 })
 
-const Item = model("Item", itemSchemma)
-module.exports = Item
+const Outfit = model("Outfit", outfitSchemma)
+module.exports = Outfit

@@ -1,5 +1,8 @@
 const Item=require('../models/Item')
-
+const cloudinary = require("cloudinary").v2;
+const cors = require("cors");
+const Multer = require("multer");
+const storage = new Multer.memoryStorage();
 
 async function createItem(req,res) {
     try {
@@ -12,7 +15,7 @@ async function createItem(req,res) {
 
 async function allItems(req,res){
     try {
-        const allItems = await Pet.find()
+        const allItems = await Item.find()
         if (allItems.length){
             res.status(200).json(allItems)
         } else {
@@ -28,7 +31,7 @@ async function deleteItem(req, res){
     try {
         const item = await Item.findByIdAndDelete(req.params.id)
         if (item){
-            res.status(200).json(pet)
+            res.status(200).json(item)
         } else {
             res.sendStatus(404)
         }

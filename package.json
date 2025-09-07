@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-       "scripts": {
-        "backend": "node server/index.js",
-        "frontend": "npm run start --prefix frontend",
-        "dev": "concurrently \"npm run backend\" \"npm run frontend\""
-      },
-
+  "scripts": {
+    "backend": "node server/index.js",
+    "frontend": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aml131/outfitly-backend.git"
@@ -27,6 +26,7 @@
     "dotenv": "^17.2.2",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "method-override": "^3.0.0",
     "mongoose": "^8.18.0",
     "morgan": "^1.10.1",
